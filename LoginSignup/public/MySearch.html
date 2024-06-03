@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <div class="w-full bg-white shadow-md flex">
+      <button
+        class="m-4 w-6 h-6 flex items-center justify-center rounded-full bg-gray-200"
+      >
+        <svg
+          data-slot="icon"
+          fill="none"
+          stroke-width="1.5"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          class="w-4 h-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          ></path>
+        </svg>
+      </button>
+      <input
+        type="text"
+        id="search-bar"
+        placeholder="검색어를 입력해주세요"
+        class="w-full p-4 border border-gray-300 rounded-t"
+      />
+    </div>
+
+    <div class="mt-8 w-full md:max-w-md relative">
+      <button
+        class="mx-auto relative overflow-hidden bg-transparent p-2 rounded-lg shadow-lg focus:outline-none"
+        style="max-width: 565px"
+      >
+        <img
+          src="img/search/토리코코로.png"
+          alt="토리코코로 직사각형 이미지"
+          class="w-full h-full object-cover rounded-lg"
+        />
+      </button>
+    </div>
+
+    <div class="mt-8 w-full md:max-w-md relative">
+      <div
+        class="mx-auto relative overflow-hidden bg-transparent p-2 rounded-lg shadow-lg"
+        style="padding-bottom: 100%; max-width: 465px"
+      >
+        <img
+          src="img/search/지도.png"
+          alt="지도 이미지"
+          class="absolute inset-0 w-full h-full object-cover rounded-lg"
+        />
+      </div>
+      <div class="mt-4 ml-4">
+        <p class="text-xl font-bold">관련 채팅방</p>
+      </div>
+      <div class="mt-4 ml-4 flex flex-wrap items-center">
+        <div class="mb-4 mr-8 flex flex-col items-center">
+            <button class="focus:outline-none">
+                <svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-10 h-10 mb-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z"></path>
+                </svg>
+                <p class="text-lg font-bold">일식</p>
+            </button>
+        </div>
+        <div class="mb-4 mr-8 flex flex-col items-center">
+            <button class="focus:outline-none">
+                <svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-10 h-10 mb-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z"></path>
+                </svg>
+                <p class="text-lg font-bold">중식</p>
+            </button>
+        </div>
+        <div class="mb-4 flex flex-col items-center">
+            <button class="focus:outline-none">
+                <svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-10 h-10 mb-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z"></path>
+                </svg>
+                <p class="text-lg font-bold">한식</p>
+            </button>
+        </div>
+    </div>
+    <div class="mt-4 ml-4">
+      <p class="text-xl font-bold">관련 리뷰</p>
+    </div>
+    
+    <div class="mt-8 w-full md:max-w-md relative">
+      <div class="mx-auto relative overflow-hidden bg-transparent p-2 rounded-lg shadow-lg" style="max-width: 465px;">
+          <button class="w-full h-auto">
+              <img src="img/search/리뷰.png" alt="리뷰 이미지" class="w-full h-auto object-cover rounded-lg">
+          </button>
+      </div>
+  </div>
+  
+  
+    
+  </body>
+</html>
