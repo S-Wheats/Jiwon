@@ -16,7 +16,7 @@
     <div>
         <img src="logo.png" width="40"/>
         <p class="text-right text-gray-200 text-xs pb-1">커뮤니티로 -></p>
-        <div> <!--TODO Input에 대한 Submit 구현 및 검색결과 연동-->
+        <div onClick="location.href='./MySearch.html'"> <!--TODO Input에 대한 Submit 구현 및 검색결과 연동-->
             <input
                 type="text"
                 class="w-full h-6 border-gray-200 rounded-full text-center outline-none"
@@ -37,7 +37,7 @@
         </div>
     </div> <!--TODO 하단 배너 href 연동-->
     <div class="px-3 pt-2 pb-5"> 
-        <button class="w-full bg-pink-300 text-white text-xl font-semibold rounded-lg shadow-md shadow-gray-500 outline outline-white">
+        <button class="w-full bg-pink-300 text-white text-xl font-semibold rounded-lg shadow-md shadow-gray-500 outline outline-white" onClick="location.href='./random.html'">
           <p class="pt-1">오늘학식 뭐먹지?</p>
           <p class="pb-1">고민없이 이건 어때?</p>
         </button>
@@ -164,7 +164,7 @@
         </svg>
         <span class="text-xs">마이페이지</span>
       </div>
-      <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center" onclick="location.href='./order.html'">
         <svg data-slot="icon" class="w-8 h-8" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
         </svg>
