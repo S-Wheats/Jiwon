@@ -38,6 +38,7 @@ async function login() {
     return;
   }
 
+<<<<<<< HEAD
   const storedEmail = localStorage.getItem("userEmail");
   const storedPassword = localStorage.getItem("userPassword");
 
@@ -87,3 +88,81 @@ async function signup() {
   alert("회원가입이 완료되었습니다.");
   window.location.href = "./Login.html";
 }
+=======
+  const response = await fetch("/api/users/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: id, password: ps }),
+  });
+
+  const data = await response.json();
+  console.log("Response Data:", data); // 서버 응답 데이터를 출력
+
+  if (response.ok) {
+    alert(data.message);
+    // 사용자 이름과 이메일을 로컬 스토리지에 저장
+    localStorage.setItem("userName", data.name);
+    localStorage.setItem("userEmail", id);
+    console.log("Saved userName:", data.name); // 콘솔 로그 추가
+    console.log("Saved userEmail:", id); // 콘솔 로그 추가
+    window.location.href = "./mainPage.html";
+  } else {
+    alert(data.message);
+  }
+}
+
+var Page = {
+  init: function (cbfunc, url) {
+    AJAX.call("jsp/session.jsp", null, function (data) {
+      var uid = data.trim();
+      if (uid == "null") {
+        alert("로그인이 필요한 서비스 입니다.");
+        window.location.href = "./login.html";
+      } else {
+        var param = url == null ? null : SessionStore.get(url);
+        if (cbfunc != null) cbfunc(uid, param);
+      }
+    });
+  },
+
+  go: function (url, param) {
+    SessionStore.set(url, param);
+    window.location.href = url;
+  },
+};
+
+var SessionStore = {
+  set: function (name, val) {
+    sessionStorage.setItem(name, JSON.stringify(val));
+  },
+  get: function (name) {
+    var str = sessionStorage.getItem(name);
+    return str == null || str == "null" ? null : JSON.parse(str);
+  },
+  remove: function (name) {
+    sessionStorage.removeItem(name);
+  },
+};
+
+var DataCache = {
+  set: function (name, data) {
+    var obj = { ts: Date.now(), data: data };
+    SessionStore.set(name, obj);
+  },
+  get: function (name) {
+    var obj = SessionStore.get(name);
+    if (obj == null) {
+      return null;
+    }
+    var diff = (Date.now() - obj.ts) / 60000;
+    if (diff > 10) {
+      SessionStore.remove(name);
+      return null;
+    }
+    return obj.data;
+  },
+  remove: function (name) {
+    SessionStore.remove(name);
+  },
+};
+>>>>>>> 7aebb56506ca65984171903e816294a2aaf990ac
