@@ -94,7 +94,6 @@
           return;
         }
 
-<<<<<<< HEAD
         // 사용자 정보를 로컬 스토리지에 저장
         localStorage.setItem("userEmail", id);
         localStorage.setItem("userPassword", ps);
@@ -102,30 +101,6 @@
 
         alert("회원가입이 완료되었습니다.");
         window.location.href = "./Login.html";
-=======
-        const response = await fetch("/api/users/signup", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: id, password: ps, name: name }),
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-          alert(data.message);
-          window.location.href = "./index.html";
-        } else {
-          alert(data.message);
-        }
-      }
-
-      function getToday() {
-        var date = new Date();
-        var year = date.getFullYear();
-        var month = ("0" + (1 + date.getMonth())).slice(-2);
-        var day = ("0" + date.getDate()).slice(-2);
-
-        return year + "-" + month + "-" + day;
->>>>>>> 7aebb56506ca65984171903e816294a2aaf990ac
       }
     </script>
   </body>
