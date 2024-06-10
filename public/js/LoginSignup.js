@@ -50,57 +50,40 @@ async function login() {
   }
 }
 
-var Page = {
-  init: function (cbfunc, url) {
-    AJAX.call("jsp/session.jsp", null, function (data) {
-      var uid = data.trim();
-      if (uid == "null") {
-        alert("로그인이 필요한 서비스 입니다.");
-        window.location.href = "./login.html";
-      } else {
-        var param = url == null ? null : SessionStore.get(url);
-        if (cbfunc != null) cbfunc(uid, param);
-      }
-    });
-  },
+async function signup() {
+  var id = $("#id").val().trim();
+  if (id == "") {
+    alert("아이디를 입력해 주세요.");
+    $("#id").focus();
+    return;
+  }
 
-  go: function (url, param) {
-    SessionStore.set(url, param);
-    window.location.href = url;
-  },
-};
+  var ps = $("#ps").val().trim();
+  if (ps == "") {
+    alert("패스워드를 입력해 주세요.");
+    $("#ps").focus();
+    return;
+  }
 
-var SessionStore = {
-  set: function (name, val) {
-    sessionStorage.setItem(name, JSON.stringify(val));
-  },
-  get: function (name) {
-    var str = sessionStorage.getItem(name);
-    return str == null || str == "null" ? null : JSON.parse(str);
-  },
-  remove: function (name) {
-    sessionStorage.removeItem(name);
-  },
-};
+  var ps2 = $("#ps2").val().trim();
+  if (ps != ps2) {
+    alert("입력된 두 개의 패스워드가 일치하지 않습니다.");
+    $("#ps2").focus();
+    return;
+  }
 
-var DataCache = {
-  set: function (name, data) {
-    var obj = { ts: Date.now(), data: data };
-    SessionStore.set(name, obj);
-  },
-  get: function (name) {
-    var obj = SessionStore.get(name);
-    if (obj == null) {
-      return null;
-    }
-    var diff = (Date.now() - obj.ts) / 60000;
-    if (diff > 10) {
-      SessionStore.remove(name);
-      return null;
-    }
-    return obj.data;
-  },
-  remove: function (name) {
-    SessionStore.remove(name);
-  },
-};
+  var name = $("#name").val().trim();
+  if (name == "") {
+    alert("이름을 입력해 주세요.");
+    $("#name").focus();
+    return;
+  }
+
+  // 사용자 정보를 로컬 스토리지에 저장
+  localStorage.setItem("userEmail", id);
+  localStorage.setItem("userPassword", ps);
+  localStorage.setItem("userName", name);
+
+  alert("회원가입이 완료되었습니다.");
+  window.location.href = "./Login.html";
+}
